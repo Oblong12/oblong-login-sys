@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // 1. GET USER INPUT DATA
     $username = trim($_POST['username']);
     $password = $_POST['password'];
-    $role = $_POST['role']; // If you don't need roles, you can remove this
+    $role = 'user'; // Fixed default role: New applicants are always 'user' by default.
     
     // 2. FORM VALIDATION RULES (Adjust these as needed)
     if (strlen($username) < 3) {
@@ -73,14 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label>Password</label>
                 <input type="password" name="password" required>
             </div>
-            <div class="form-group">
-                <label>Role</label>
-                <select name="role">
-                    <option value="user">User</option>
-                    <option value="staff">Staff</option>
-                    <option value="manager">Manager</option>
-                </select>
-            </div>
+            <!-- Role selection removed for security. New users default to 'user'. -->
             <button type="submit" class="btn">Sign Up</button>
         </form>
         
